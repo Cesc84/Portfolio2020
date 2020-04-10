@@ -1,0 +1,54 @@
+/* ***** Bio ***** */
+.bio {
+  @include breakpoint(1023px down) {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+  /* ***** Swap position on desktop size ***** */
+  @include breakpoint(large up) {
+    .portrait {
+      order: 1;
+    }
+    .content {
+      order: 2;
+    }
+  }
+  article {
+    @include breakpoint(small up) {
+      padding-top: rem-calc($custom-space / 2);
+      padding-bottom: rem-calc($custom-space / 2);
+      text-align: center;
+    }
+
+    @include breakpoint(large up) {
+      padding-top: rem-calc($l-custom-space);
+      padding-bottom: rem-calc($l-custom-space);
+      padding-left: rem-calc($custom-space);
+      text-align: left;
+    }
+
+    @include breakpoint(1401px up) {
+      padding-left: $l-custom-space;
+    }
+    @include breakpoint(1023px down) {
+      padding-top: 0;
+      h4 {
+        line-height: 0;
+      }
+    }
+  }
+  figure {
+    margin-bottom: $global-margin;
+    @include breakpoint(1023px down) {
+      margin-top: $global-margin;
+
+    }
+    // height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

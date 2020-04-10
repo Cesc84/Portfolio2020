@@ -1,0 +1,49 @@
+/* ***** Hero ***** */
+.hero {
+  height: calc(100vh);
+  .grid-container {
+    position: relative;
+    /* ***** Scroll Down ***** */
+    .down {
+      > a {
+        bottom: rem-calc(70);
+        right: rem-calc(-25);
+        transform: rotate(90deg);
+        &::before {
+          top: rem-calc(-58);
+          right: rem-calc(185);
+          @include breakpoint(medium down) {
+            height: rem-calc(80);
+            top: rem-calc(-29);
+            right: rem-calc(150);
+          }
+        }
+        &:hover {
+          bottom: rem-calc(65);
+        }
+      }
+    }
+    .hero-content {
+      @include absolute-center;
+      width: 100%;
+    }
+    /* ***** Socials Menu - Bottom ***** */
+    .socials {
+      position: absolute;
+      bottom: rem-calc(10);
+      @include breakpoint(medium down) {
+        left: $global-padding;
+        bottom: $global-padding;
+        li {
+          // padding-right: $l-custom-space;
+          bottom: $custom-space;
+        }
+      }
+      a {
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

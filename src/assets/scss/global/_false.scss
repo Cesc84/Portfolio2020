@@ -1,0 +1,38 @@
+%standard-ani {
+  @include transition-transform(all, 600ms, ease-in-out, 0s);
+}
+
+%fast-ani {
+  @include transition-transform(all, 300ms, ease-in-out, 0s);
+}
+
+%overlay {
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(scale-color($black, $lightness: -33%), .55);
+    pointer-events: none;
+    @extend %fast-ani;
+  }
+
+  img {
+    @extend %fast-ani;
+  }
+
+  &:hover {
+    &:before {
+      background-color: rgba(scale-color($black, $lightness: -33%), .33);
+    }
+
+    img {
+      transform: scale(1.10);
+    }
+  }
+}

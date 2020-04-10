@@ -1,0 +1,130 @@
+/* ***** Grid Cards ***** */
+.item {
+  position: relative;
+  margin-bottom: $global-margin;
+  h4 {
+    @include absolute-center;
+    width: 100%;
+    padding: $global-padding;
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+    z-index: 1;
+  }
+  figure {
+    // background-image: url('../img/corns.png');
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    overflow: hidden;
+    img {
+      @include transition-transform(all, 300ms, ease-in-out, 0s);
+    }
+  }
+  .abs-link {
+    background-color: rgba(scale-color($black, $lightness: -33%), .40);
+  }
+  &:hover {
+    .abs-link {
+      background-color: rgba(scale-color($black, $lightness: -33%), 0);
+    }
+    h4 {
+      opacity: 0;
+      z-index: -1;
+    }
+    img {
+      -webkit-backface-visibility: hidden;
+      -webkit-transform: translateZ(0) scale(1.0, 1.0);
+      transform: translateZ(0);
+      -webkit-transform: scale(1.10);
+      -ms-transform: scale(1.10);
+      transform: scale(1.10);
+    }
+    &.hovered {
+      .description {
+        opacity: 1;
+      }
+    }
+  }
+  .extra {
+    position: absolute;
+    bottom: rem-calc(30);
+    right: rem-calc(30);
+    // border: 1px solid $gold;
+    margin-top: $l-custom-space;
+    // display: none;
+    // padding: 0 $global-padding;
+    // border-radius: rem-calc(25);
+    color: $gold;
+    z-index: 2;
+    // @include transition-transform(all, 400ms, ease-in-out, 0s);
+    cursor: pointer;
+  }
+  // .web-link {
+  //   margin-top: $l-custom-space;
+  // }
+  .description {
+    opacity: 0;
+    @include absolute-center;
+    background-color: rgba(scale-color($black, $lightness: -33%), .75);
+    width: 101%;
+    height: 101%;
+    padding: $global-padding;
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+    // &::before {
+    //   content: '';
+    //   @include absolute-center;
+    //   width: 100%;
+    //   height: 100%;
+    //   opacity: 0;
+    // }
+  }
+}
+
+/* ***** Grid Skills on CV page ***** */
+.cv {
+  .grid-card {
+    @include breakpoint(1023px down) {
+      margin-top: rem-calc(-5);
+    }
+    .cell {
+      @include breakpoint(1023px down) {
+        padding-left: 0!important;
+        padding-right: 0!important;
+      }
+    }
+  }
+  .tech {
+    position: relative;
+    .skill {
+      margin-bottom: $global-margin;
+      @include breakpoint(1023px down) {
+        margin-bottom: rem-calc(5);
+      }
+    }
+  }
+  .skill {
+    position: relative;
+    background-color: $medium-gray;
+    border: 1px solid $medium-gray;
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+    cursor: pointer;
+    @include breakpoint(1023px down) {
+      margin: rem-calc(5);
+    }
+    h5 {
+      padding: $custom-space 0;
+      @include transition-transform(all, 300ms, ease-in-out, 0s);
+    }
+    &:hover,
+    &.active,
+    &:focus {
+      border: 1px solid $gold;
+      h5 {
+        color: $gold;
+      }
+    }
+    &.selected {
+      border: 1px solid $gold;
+      color: $gold;
+    }
+  }
+}

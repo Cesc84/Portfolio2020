@@ -1,0 +1,36 @@
+@mixin transition-transform($what: all, $duration: 1.4s, $timing: ease-in-out, $delay: 0s, $preface:webkit moz ms o spec){
+  @each $browser in $preface {
+    @if( $browser == spec) {
+      transition: $what $duration $timing $delay;
+    } @else {
+      -#{$browser}-transition: $what $duration $timing $delay;
+    }
+  }
+}
+
+@mixin full-image {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+// translate
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}

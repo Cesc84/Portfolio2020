@@ -1,0 +1,141 @@
+/* ***** Scrollbar ***** */
+.scrollbar {
+    > a {
+    position: absolute;
+    font-size: rem-calc(14);
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+    @include breakpoint(1023px down) {
+      font-size: rem-calc(13);
+    }
+    &::before {
+      content: '';
+      width: rem-calc(2);
+      height: rem-calc(140);
+      transform: rotate(90deg);
+      background-color: $white;
+      position: absolute;
+      @include transition-transform(all, 300ms, ease-in-out, 0s);
+    }
+    &:hover {
+      color: $gold;
+      &::before {
+        background-color: $gold;
+      }
+    }
+  }
+}
+
+/* *****  Classes to apply on Shrink Header Animation ***** */
+/* ***** On Desktop ***** */
+.desktop-shrink {
+  .top-bar {
+    &::before {
+      height: rem-calc(54);
+    }
+    @include transition-transform(all, 300ms, ease-in-out, 0s);
+    ul {
+      background-color: transparent;
+      li {
+        a {
+          color: $gold;
+          &:hover {
+            color: $black;
+            &::after {
+              background-color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ***** On Mobile ***** */
+.mobile-shrink {
+  .top-bar {
+    height: 60px;
+    &::before {
+      height: rem-calc(120);
+    }
+    ul {
+      padding-top: rem-calc(8);
+      li {
+        padding-bottom: 0!important;
+        a {
+          font-size: rem-calc(12)!important;
+        }
+      }
+    }
+  }
+}
+
+.typed-cursor {
+  display: none;
+}
+
+/* ***** Pop Up on CV page ***** */
+/* ***** Back to Index button ***** */
+// .back {
+//   position: fixed;
+//   top: rem-calc(50);
+//   right: rem-calc(60);
+//   a {
+//     background-color: transparent;
+//     span {
+//       font-size: rem-calc(30);
+//       @include transition-transform(all, 300ms, ease-in-out, 0s);
+//       &::before {
+//         border: 1px solid $gold;
+//         border-radius: rem-calc(25);
+//         padding: 0 35px;
+//       }
+//       &:hover {
+//         color: $gold;
+//         margin-left: rem-calc(-5);
+//       }
+//     }
+//     &:hover {
+//       background-color: $black;
+//     }
+//   }
+// }
+
+/* ***** Pop Up ***** */
+.pop-up {
+  display: none;
+  @include absolute-center;
+  background-color: $gold;
+  margin: auto;
+  padding:  20px 60px 40px 60px;
+  .button {
+    background-color: $black;
+    &:hover {
+      background-color: scale-color($black, $lightness: 10%);
+    }
+  }
+}
+
+/* ***** Close button on Pop Up ***** */
+.callout {
+  position: absolute;
+  top: rem-calc(10);
+  right: rem-calc(15);
+  width: rem-calc(35);
+  height: rem-calc(35);
+  cursor: pointer;
+  z-index: 9;
+  .title-bar {
+    @include absolute-center;
+    z-index: 10;
+    &:before,
+    &:after {
+      top: 0;
+      left: rem-calc(-15);
+    }
+    &:before{
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}

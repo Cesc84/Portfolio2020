@@ -1,0 +1,82 @@
+/* ***** Footer - Contact ***** */
+.contact {
+  .grid-container {
+    position: relative;
+    /* ***** Scroll Up ***** */
+    .up {
+        > a {
+        bottom: rem-calc(205);
+        right: rem-calc(-10);
+        transform: rotate(-90deg);
+        @include breakpoint(medium down) {
+          bottom: rem-calc(145);
+        }
+        &::before {
+          top: rem-calc(-58);
+          right: rem-calc(158);
+          @include breakpoint(medium down) {
+            height: rem-calc(80);
+            top: rem-calc(-29);
+            right: rem-calc(125);
+          }
+        }
+        &:hover {
+          bottom: rem-calc(210);
+          @include breakpoint(medium down) {
+            bottom: rem-calc(150);
+          }
+        }
+      }
+    }
+
+    /* ***** Socials Menu ***** */
+    .socials {
+      position: static;
+      display: block;
+      padding-top: rem-calc(44);
+      .menu {
+        align-items: center;
+        justify-content: center;
+        a {
+          padding-top: 0;
+        }
+      }
+      @include breakpoint(medium down) {
+        padding-top: $custom-space;
+        padding-bottom: $custom-space;
+      }
+    }
+
+    /* ***** Form ***** */
+    form {
+      background-color: $medium-gray;
+      max-width: calc(100% / 12 * 6);
+      padding: rem-calc($custom-space * 2);
+      margin: auto;
+      border-radius: rem-calc(5);
+      [type='text'] {
+        background-color: $medium-gray;
+        margin-bottom: rem-calc($custom-space / 2);
+        padding-left: rem-calc($custom-space / 2);
+        border: none;
+        border-bottom: 1px solid $gold;
+        border-radius: 0;
+        color: $white ;
+        &:focus,
+        &:active {
+          background-color: lighten($gold, 9.5);
+          border: 1px solid $gold;
+          border-radius: rem-calc(5);
+        }
+      }
+      @include breakpoint(1023px down) {
+        // background-color: $black;
+        max-width: 100%;
+      }
+      .button {
+        margin-top: $global-margin;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

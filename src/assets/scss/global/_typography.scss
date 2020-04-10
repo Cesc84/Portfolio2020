@@ -1,0 +1,63 @@
+* {
+  letter-spacing: rem-calc(1.6);
+}
+
+a {
+  @include transition-transform(all, 300ms, ease-in-out, 0s);
+}
+
+h2, h3 {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem-calc(140);
+    height: rem-calc(2);
+    background-color: $gold;
+  }
+}
+
+h2 {
+  &::after {
+    top: rem-calc(88);
+    @include breakpoint(1023px down) {
+      top: rem-calc(78);
+    }
+    @include breakpoint(678px down) {
+      top: rem-calc(58);
+    }
+  }
+}
+
+h3 {
+  margin-top: $custom-space;
+  &::after {
+    top: rem-calc(-20);
+    @include breakpoint(1023px down) {
+      top: rem-calc(-17);
+    }
+  }
+}
+
+h5 {
+  font-weight: normal;
+}
+
+h6 {
+  margin-top: $l-custom-space;
+  margin-bottom: $l-custom-space;
+  @include breakpoint(1023px down) {
+    margin-top: $custom-space;
+    margin-bottom: $custom-space;
+  }
+}
+
+p {
+  padding: $global-padding 0;
+  @include breakpoint(1023px down) {
+    font-size: rem-calc(15);
+    padding: $global-padding;
+  }
+}
